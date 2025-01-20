@@ -8,6 +8,7 @@ function mergeAlternately(word1: string, word2: string): string {
     while (word1Arr.length > 0 || word2Arr.length > 0) {
         if (word1Arr.length > 0) {
             result += word1Arr.shift();
+            
         }
 
         if (word2Arr.length > 0) {
