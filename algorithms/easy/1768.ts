@@ -11,6 +11,7 @@ function mergeAlternately(word1: string, word2: string): string {
             
         }
 
+
         if (word2Arr.length > 0) {
             result += word2Arr.shift();
         }
@@ -18,7 +19,7 @@ function mergeAlternately(word1: string, word2: string): string {
 
     return result;
 
-};
+}
 
 /**
 Example 1:
