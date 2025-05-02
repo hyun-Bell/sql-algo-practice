@@ -1,11 +1,6 @@
 function reverseDegree(s: string): number {
-
-    let sum = 0;
-    for (let i = 0; i < s.length; i++) {
-        let reversedIndex = 122 - s.charCodeAt(i) + 1;
-
-        sum += reversedIndex * (i + 1)
-    }
-
-    return sum;
+    return [...s].reduce((acc, char, index) => {
+        const reversedAlphabetIndex = 'z'.charCodeAt(0) - char.charCodeAt(0) + 1;
+        return acc + (reversedAlphabetIndex * (index + 1));
+    }, 0);
 }
