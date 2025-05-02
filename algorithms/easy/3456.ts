@@ -1,26 +1,29 @@
 function hasSpecialSubstring(s: string, k: number): boolean {
+    if (k > s.length) return false;
 
-    let prev = s[0];
+    let i = 0;
+    while (i < s.length) {
+        const currentChar = s[i];
 
-    let count = 0;
-    let found = false;
-    for (let i = 0; i < s.length; i++) {
-        if (prev !== s[i]) {
-            if (k === count) {
-                found = true;
-                break;
+        const start = i;
+
+        while (i < s.length && s[i] === currentChar) {
+            i++;
+        }
+
+        const length = i - start;
+
+        if (length === k) {
+
+            const validBefore = start === 0 || s[start - 1] !== currentChar;
+
+            const validAfter = i === s.length || s[i] !== currentChar;
+
+            if (validBefore && validAfter) {
+                return true;
             }
-            count = 1;
         }
-        if (prev === s[i]) {
-            count++;
-        }
-
-        prev = s[i];
     }
 
-    if (count === k) {
-        found = true;
-    }
-    return found;
+    return false;
 }
